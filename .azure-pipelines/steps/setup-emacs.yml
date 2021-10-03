@@ -27,7 +27,7 @@ steps:
     brew outdated openssl || brew upgrade openssl
     # https://github.com/remacs/remacs/issues/155 (pkg-config)
     brew outdated pkg-config || brew upgrade pkg-config
-    $(brew --prefix)/opt/openssl/bin/c_rehash
+    $(brew --prefix)/opt/openssl/bin/c_rehash || echo "Failed to run c_rehash"
     # https://github.com/remacs/remacs/issues/886 (libxml2, macOS 10.14)
     echo "##vso[task.setvariable variable=PKG_CONFIG_PATH]/usr/local/opt/libxml2/lib/pkgconfig"
   displayName: Install Emacs's pre-requisites (macOS)
